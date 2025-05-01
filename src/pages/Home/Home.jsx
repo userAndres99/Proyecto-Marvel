@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
-import Boton from '../../components/Boton/Boton'; // Importa el componente Boton
+import { useNavigate } from 'react-router-dom'; 
+//---importacion de componentes
+import Boton from '../../components/Boton/Boton';
+//--------------------------------
+
 
 export default function Home() {
   const [hovered, setHovered] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <>
-      <Header />
-
+     
       <div className="flex h-screen">
         {/* Mitad Heroes */}
         <div
@@ -24,7 +26,7 @@ export default function Home() {
         >
           <Boton
             text="Héroes"
-            onClick={() => console.log('Héroes seleccionado')}
+            onClick={() => navigate('/personajes?heroe=true')} 
           />
         </div>
 
@@ -41,12 +43,11 @@ export default function Home() {
         >
           <Boton
             text="Villanos"
-            onClick={() => console.log('Villanos seleccionado')}
+            onClick={() => navigate('/personajes?heroe=false')} 
           />
         </div>
       </div>
 
-      <Footer />
     </>
   );
 }
