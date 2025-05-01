@@ -1,30 +1,25 @@
-import styles from './Header.module.css';
-import Titulo from '../Titulo/Titulo';
-import Boton from '../Boton/Boton';
-import { Film, Eye, EyeOff } from 'lucide-react';
-import { Buscador } from '../Buscador/Buscador';
+import styles from './Header.module.css'; 
+import Boton from '../Boton/Boton'; 
+import Titulo from '../Titulo/Titulo'; 
 
-const Header = ({ mostrarVistos, mostrarPorVer, mostrarTodo, buscarContenido }) => {
+const Header = () => {
   return (
-    <header className={styles.header}>
-      <div className={styles.left}>
-        <Film size={32} onClick={mostrarTodo} /> {/* puse para que el logo sea el "mostrar todo"*/}
-        <Titulo text="Gestor de Películas y Series" />
+    <header className={`${styles.header} flex items-center justify-between px-4 py-2 bg-gray-900 text-white`}>
+      
+      <div className="flex items-center ml-4"> 
+        <img
+          src="/public/icons-marvel.png" 
+          alt="Marvel Logo"
+          className="h-16 w-auto mr-4" 
+        />
+        <Titulo text="Proyecto Marvel" />
       </div>
-      <div className={styles.center}>
-        <Buscador buscarContenido={ buscarContenido}></Buscador>
-      </div>
-      <div className={styles.right}>
-        <Boton text={<><Eye size={18} /> Visto</>} onClick={mostrarVistos} />
-        <Boton text={<><EyeOff size={18} /> Por ver</>} onClick={mostrarPorVer} />
+
+      <div>
+        <Boton text="Favoritos" onClick={() => console.log('Favoritos seleccionados')} />
       </div>
     </header>
   );
 };
 
 export default Header;
-
-
-
-
-
