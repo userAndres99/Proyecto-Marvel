@@ -1,12 +1,13 @@
-// src/components/Input/Input.jsx
-import styles from './Input.module.css';
-
-// name --> nombre del input (y tamb para id)
-// value --> valor del input
-// onChange --> función para manejar el cambio en el input
-// type --> tipo de input (por defecto 'text')
-
-const Input = ({ name, value, onChange, type = 'text' }) => {
+import styles from "./Input.module.css";
+/**
+ * este componente es un input 
+ * @param {name} name es el nombre del input
+ * @param {value} value es el valor del input
+ * @param {onChange} onChange es la funcion que se ejecuta cuando cambia el valor del input
+ * @param {type} type es el tipo de input (text, email, password, etc)
+ * @param {placeholder} placeholder es el texto que aparece en el input cuando esta vacio
+ */
+const Input = ({ name, value, onChange, type = "text", placeholder }) => {
   return (
     <input
       className={styles.input}
@@ -14,7 +15,8 @@ const Input = ({ name, value, onChange, type = 'text' }) => {
       id={name}
       type={type}
       value={value}
-      onChange={onChange}        // lo que hay dentro del onChange es ------> ()=> onChange(event.target.value)
+      placeholder={placeholder} 
+      onChange={(event) => onChange(event.target.value)} 
     />
   );
 };
