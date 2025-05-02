@@ -1,5 +1,3 @@
-// Boton.jsx
-
 const Boton = ({ text, onClick }) => {
     return (
       <button
@@ -9,4 +7,3 @@ const Boton = ({ text, onClick }) => {
   };
   
   export default Boton;
-  

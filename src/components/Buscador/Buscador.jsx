@@ -1,40 +1,39 @@
-// src/components/Buscador/Buscador.jsx
-
 import React, { useState } from "react";
-import Boton from "../Boton/Boton.jsx"; 
-import Input from "../Input/Input.jsx"; 
+import Boton from "../Boton/Boton.jsx";
+import Input from "../Input/Input.jsx";
+
 /**
- * este componente es un buscador que permite buscar personajes por nombre.
- * @param {onBuscar} onBuscar es una funcion que se ejecuta cuando se envia el formulario
+ * Este componente permite buscar personajes por nombre.
+ * @param {Function} onBuscar - Función que se ejecuta cuando se envía el formulario.
  */
 export function Buscador({ onBuscar }) {
-
-  //el inputValue es el valor del input
+  // Estado para el valor del input
   const [inputValue, setInputValue] = useState("");
 
-  //handleChange es la funcion que se ejecuta cuando cambia el valor del input
+  // Actualiza el estado con el nuevo valor del input
   const handleChange = (nuevoValor) => {
-    setInputValue(nuevoValor);   // Actualiza el estado con el nuevo valor
+    setInputValue(nuevoValor);
   };
 
-  //handleSubmit es la funcion que se ejecuta cuando se envia el formulario
+  // Maneja el envío del formulario
   const handleSubmit = (e) => {
-    e.preventDefault();   //para evitar que la pagina se recargue 
+    e.preventDefault(); // Evita la recarga de la página
     if (inputValue.trim()) {
-      onBuscar(inputValue.trim());  //
+      onBuscar(inputValue.trim());
       setInputValue(""); // Limpia el input
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center space-x-4">
+    <form onSubmit={handleSubmit} className="flex items-center gap-4">
       <Input
         name="busqueda"
         value={inputValue}
         onChange={handleChange}
-        placeholder="Buscar por nombre del heroe o villano"
+        placeholder="Buscar nombre del heroe o villano..."
+        className="w-80 px-4 py-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500"
       />
-      <Boton text="Buscar" type="submit" />
+      <Boton text="Buscar" type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md" />
     </form>
   );
 }

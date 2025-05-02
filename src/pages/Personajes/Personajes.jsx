@@ -1,19 +1,19 @@
-// src/pages/Personajes/Personajes.jsx
-
-import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import { getInformacion } from '../../services/getInformacion';
-import { getPersonaje } from '../../services/buscarPersonaje';
+import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { getInformacion } from "../../services/getInformacion";
+import { getPersonaje } from "../../services/buscarPersonaje";
+import ListarPersonajes from "../../components/ListarPersonajes/ListarPersonajes"; // Importa el nuevo componente
 
 const Personajes = () => {
   const location = useLocation();
+  const navigate = useNavigate(); 
   const queryParams = new URLSearchParams(location.search);
 
-  // vemos si busqueda tiene un valor, si no lo tiene es porque no se está buscando nada.
-  const busqueda = queryParams.get('busqueda');
+  // Si "busqueda" tiene un valor, es porque se está buscando algo...si no, es un listado normal
+  const busqueda = queryParams.get("busqueda");
 
-  // Para el listado normal se usa el parámetro "heroe", en caso de no estar haciendo búsqueda.
-  const heroeParam = queryParams.get('heroe');
+  // Para el listado normal se usa el parámetro "heroe"
+  const heroeParam = queryParams.get("heroe");
   const esHeroe = heroeParam === "true";
 
   const [personajes, setPersonajes] = useState([]);
@@ -22,10 +22,10 @@ const Personajes = () => {
   useEffect(() => {
     async function obtenerPersonajes() {
       try {
-        if (busqueda) {  //si es una búsqueda se entra por aca
+        if (busqueda) {  // Si hay una búsqueda
           const personajeEncontrado = await getPersonaje(busqueda);
           setPersonajes(personajeEncontrado ? [personajeEncontrado] : []);
-        } else {  //sino es buqueda entonces seguro es el listado normal
+        } else {  // Si no hay búsqueda, se cargan todos los héroes o villanos
           const datos = await getInformacion(esHeroe);
           setPersonajes(datos);
         }
@@ -39,14 +39,16 @@ const Personajes = () => {
   }, [busqueda, esHeroe]);
 
   if (cargando) {
-    return <p>Cargando personajes...</p>;
+    return <p className="mt-20 text-center text-xl">Cargando personajes...</p>;
   }
 
   return (
-    <div className="container mx-auto p-8">
-      <Link>
-        <NavLink to="/">Volver</NavLink>
-      </Link>
+    <div className="container mx-auto p-8  mt-20">
+      <div className="flex justify-start w-full">
+        <button onClick={() => navigate(-1)} className="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+          Volver
+        </button>
+      </div>
       {busqueda ? (
         <h1 className="text-4xl font-bold text-center mb-8">
           Resultado de búsqueda: {busqueda}
@@ -57,21 +59,7 @@ const Personajes = () => {
         </h1>
       )}
       {personajes.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {personajes.map(personaje => (
-            <div key={personaje.id} className="border p-4 rounded shadow">
-              <img 
-                src={personaje.urlImagen} 
-                alt={personaje.nombre} 
-                className="w-full h-48 object-cover mb-4" 
-              />
-              <h2 className="text-2xl font-bold">{personaje.nombre}</h2>
-              <p className="text-gray-600">{personaje.alias}</p>
-              <p>{personaje.descripcion}</p>
-              <p className="mt-2 text-sm text-gray-500">{personaje.habilidades}</p>
-            </div>
-          ))}
-        </div>
+        <ListarPersonajes personajes={personajes} />
       ) : (
         <p>No se encontró el personaje.</p>
       )}

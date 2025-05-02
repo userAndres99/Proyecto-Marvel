@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
      
-      <div className="flex h-screen">
+      <div className="flex h-screen mt-10">
         {/* Mitad Heroes */}
         <div
           onMouseEnter={() => setHovered('heroes')}
