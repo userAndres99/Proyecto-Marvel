@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { getInformacion } from '../../services/getInformacion';
 import Header from '../../components/Header/Header';
 
@@ -32,8 +32,12 @@ const Personajes = () => {
 
   return (
     
+    
     <div className="container mx-auto p-8">
       <Header />
+     <Link>
+     <NavLink to="/">Volver</NavLink>
+     </Link>
       <h1 className="text-4xl font-bold text-center mb-8">
         {esHeroe ? "Héroes" : "Villanos"}
       </h1>
