@@ -1,61 +1,39 @@
-/*detalle*/
-import React, { useDebugValue, useEffect, useState } from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { getPersonajeID } from "../../services/getPersonajeID";
+import Detalle from "../../components/Detalle/Detalle";
 
-export  function DetallePersonaje() {
+export function DetallePersonaje() {
+  const location = useLocation();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-const location = useLocation();
-const {id} = useParams();
-const navigate = useNavigate()
+  // aca si el personaje no existe, lo traemos de la API
+  // si existe, lo traemos de la location.state (que es el estado que pasamos desde la pagina de personajes)
+  const [personaje, setPersonaje] = useState(location.state?.personaje);
+  const [Cargando, setCargando] = useState(!personaje);
 
-const [personaje, setPersonaje] = useState(location.state?.personaje)
-const [loading, setLoading] = useState(!personaje);
-
-
-useEffect(()=>{
-    if(!personaje){
-        fetch(`https://6810fac427f2fdac24138f1f.mockapi.io/api/v1/personajes/${id}`)
-        .then (res => {
-            if (!res.ok) throw new Error('No encontrado');
-            return res.json();
+  useEffect(() => {
+    if (!personaje) {
+      getPersonajeID(id)
+        .then((data) => {
+          setPersonaje(data);
+          setCargando(false);
         })
-        .then (data =>{
-            setPersonaje(data);
-            setLoading(false);
-        })
-        .catch(() => navigate('/'))
+        .catch(() => {
+          navigate("/");
+        });
     }
-}, [id, personaje, navigate])
+  }, [id, personaje, navigate]);
 
-
-if(loading) return <p>Cargando detalles...</p>
+  if (Cargando) {
+    return <p className="mt-20 text-center text-xl">Cargando detalles...</p>;
+  }
 
   return (
-    <>
-    <div className='p-4'>
-    <h1 className='text-2xl font-bold mb-4'>Detalle del Personaje</h1>
-    {personaje ? (
-       < div className="max-w-md mx-auto border rounded p-4 shadow"> 
-       
-       <img src={personaje.urlImagen} alt={personaje.nombre} className='w-full h-64 object-cover mb-4 rounded'>
-       </img>
-       <p className='text-xl font-semibold mb-2'>Nombre: {personaje.nombre}</p>
-       <p className='text-xl font-semibold mb-2'>Alias: {personaje.alias}</p>
-       <p className='text-xl font-semibold mb-2'>Habilidades: {personaje.habilidades}</p>
-       <p className='text-xl font-semibold mb-2'>Descripción: {personaje.descripcion}</p>
-       <p className='text-xl font-semibold mb-2'>ID: {personaje.id}</p>
-       
-
-       
-       </div>
-    ):(
-        <p>No se han recibidos datos del personaje</p>
-    )}
-
-
-
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Detalle del Personaje</h1>
+      <Detalle personaje={personaje} />
     </div>
-      
-    </>
-  )
+  );
 }

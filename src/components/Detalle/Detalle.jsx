@@ -1,56 +1,45 @@
-// src/components/Detalle/Detalle.jsx
-import React from 'react';
-import styles from './Detalle.module.css';
-import Boton from '../Boton/Boton';
-import { CheckCircle, Clock } from 'lucide-react';
+import React from "react";
 
-/**
- * item          --> objeto con { id, titulo, director, anio, genero, tipo, rating, visto, imagenUrl }
- * onEditar      --> función para editar
- * onEliminar    --> función para eliminar
- * onToggleVista --> función para alternar visto/no visto
- */
-const Detalle = ({ item, onEditar, onEliminar, onToggleVista }) => {
+const Detalle = ({ personaje }) => {
+  if (!personaje) {
+    return <p>No se han recibido datos del personaje.</p>;
+  }
+
   return (
-    <div className={styles.detalle}>
-      {/* Muestra la imagen si existe URL */}
-      {item.imagenUrl && (
+    <div className="max-w-4xl mx-auto border rounded p-6 shadow flex flex-col md:flex-row gap-6">
+      {/* parte izquierda (de la image)*/}
+      <div className="md:w-1/2 flex-shrink-0">
         <img
-          src={item.imagenUrl}
-          alt={item.titulo}
-          className={styles.imagen}
+          src={personaje.urlImagen}
+          alt={personaje.nombre}
+          className="w-full h-auto object-cover rounded"
         />
-      )}
-      {/* Muestra un texto alternativo si no hay imagen */}
-      {!item.imagenUrl && <p className={styles.sinImagen}>Sin imagen</p>}
-
-      {/*detalles del item */}
-      <h3 className={styles.titulo}>{item.titulo}</h3>
-      <p><strong>Director:</strong> {item.director}</p>
-      <p><strong>Año:</strong> {item.anio}</p>
-      <p><strong>Género:</strong> {item.genero}</p>
-      <p><strong>Tipo:</strong> {item.tipo}</p>
-      <p><strong>Rating:</strong> {item.rating}</p>
-      <p className={styles.estado}>
-        {item.visto ? (
-          <>
-            <CheckCircle size={20} style={{ verticalAlign: 'middle' }} /> Visto
-          </>
-        ) : (
-          <>
-            <Clock size={20} style={{ verticalAlign: 'middle' }} /> Por ver
-          </>
-        )}
-      </p>
-
-      {/* Botones para editar, eliminar y marcar como visto y no visto */}
-      <div className={styles.botones}>
-        <Boton
-          text={item.visto ? 'Marcar como no visto' : 'Marcar como visto'}
-          onClick={() => onToggleVista(item.id)}
-        />
-        <Boton text="Editar" onClick={() => onEditar(item.id)} />
-        <Boton text="Eliminar" onClick={() => onEliminar(item.id)} />
+      </div>
+      
+      {/* parte derecha (de los datos)*/}
+      <div className="md:w-1/2 flex flex-col justify-between text-left">
+        <div className="space-y-6">
+          <p className="text-3xl font-bold">
+            <span className="font-semibold">Nombre:</span> {personaje.nombre}
+          </p>
+          <p className="text-xl">
+            <span className="font-semibold">Alias:</span> {personaje.alias}
+          </p>
+          <p className="text-xl">
+            <span className="font-semibold">Habilidades:</span> {personaje.habilidades}
+          </p>
+          <p className="text-xl">
+            <span className="font-semibold">Descripción:</span> {personaje.descripcion}
+          </p>
+          <p className="text-xl">
+            <span className="font-semibold">Tipo:</span> {personaje.heroe ? "Héroe" : "Villano"}
+          </p>
+        </div>
+        <button
+          className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded self-start"
+        >
+          Añadir a Favoritos
+        </button>
       </div>
     </div>
   );
