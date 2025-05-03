@@ -1,4 +1,6 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import { DetallePersonaje } from "../../pages/DetallePersonaje/DetallePersonaje";
 
 const ListarPersonajes = ({ personajes }) => {
   return (
@@ -16,9 +18,12 @@ const ListarPersonajes = ({ personajes }) => {
             />
           </div>
           <h2 className="text-xl font-bold mb-2">{personaje.nombre}</h2>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+          <Link to={`/detallePersonaje/${personaje.id}`} state ={{personaje}}
+          >
+          <button  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
             Detalles
           </button>
+          </Link>
         </div>
       ))}
     </div>

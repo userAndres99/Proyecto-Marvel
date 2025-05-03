@@ -2,5 +2,5 @@ export const ROUTES = {
     Home: '/',
     Personajes: '/personajes',
     Favoriotos: '/favoritos',
-    Detalle: '/personajes/:id'
+    Detalle: '/detallePersonaje/:id'
 };
