@@ -62,14 +62,16 @@ const Personajes = () => {
     );
   }
 
-  // para cambiar la pagina...ponemos el numerito por url
   const cambiarPagina = (nuevaPagina) => {
+    setCargando(true);
+    setPersonajes([]); // seteamos la lista de personajes a vacia para que no se vea el listado anterior mientras carga el nuevo
     navigate(`/personajes?heroe=${esHeroe}&page=${nuevaPagina}`);
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
+  
 
   return (
   

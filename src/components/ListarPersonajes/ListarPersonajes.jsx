@@ -13,7 +13,10 @@ const ListarPersonajes = ({ personajes, centrado = false }) => {
       {personajes.map((personaje) => (
         <div
           key={personaje.id}
-          className="border p-4 rounded shadow flex flex-col items-center"
+          style={{ backgroundImage: `url('/FondoTarjeta.webp')` }}
+          className="border p-4 rounded shadow flex flex-col items-center bg-cover bg-center 
+                     transition-all duration-300 transform 
+                     hover:scale-105 hover:border-2 hover:border-white hover:shadow-2xl"
         >
           <div className="w-70 h-120 overflow-hidden mb-4">
             <img
