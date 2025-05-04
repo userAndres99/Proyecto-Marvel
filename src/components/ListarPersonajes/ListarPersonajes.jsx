@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { DetallePersonaje } from "../../pages/DetallePersonaje/DetallePersonaje";
+import Boton from "../Boton/Boton"; 
 
 const ListarPersonajes = ({ personajes, centrado = false }) => {
   // Si "centrado" es true, usamos grid con una sola columna y centrado, de lo contrario el grid original
@@ -24,9 +24,10 @@ const ListarPersonajes = ({ personajes, centrado = false }) => {
           </div>
           <h2 className="text-xl font-bold mb-2">{personaje.nombre}</h2>
           <Link to={`/detallePersonaje/${personaje.id}`} state={{ personaje }}>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-              Detalles
-            </button>
+            <Boton 
+              text="Detalles" 
+              clase="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            />
           </Link>
         </div>
       ))}

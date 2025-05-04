@@ -3,6 +3,8 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getPersonajeID } from "../../services/getPersonajeID";
 import Detalle from "../../components/Detalle/Detalle";
 import Fondo from "../../components/Fondo/Fondo";
+import Titulo from "../../components/Titulo/Titulo"; 
+import Boton from "../../components/Boton/Boton";
 
 export function DetallePersonaje() {
   const location = useLocation();
@@ -36,15 +38,18 @@ export function DetallePersonaje() {
       <Fondo />
       
       <div className="relative z-10 p-4 mt-10">
-        <div className="flex justify-start w-full">
-          <button
-            onClick={() => navigate(-1)}
-            className="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-          >
-            Volver
-          </button>
-        </div>
-        <h1 className="text-2xl font-bold mb-4">Detalle del Personaje</h1>
+      <div className="flex justify-start w-full">
+        <Boton 
+          text="Volver" 
+          onClick={() => navigate(-1)}
+          clase="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+        />
+      </div>
+
+      <Titulo 
+        texto="Detalle del Personaje" 
+        clase="text-2xl font-bold mb-4"
+      />
         <Detalle personaje={personaje} />
       </div>
     </div>

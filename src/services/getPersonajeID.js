@@ -1,3 +1,9 @@
+/**
+ * Función para obtener un personaje por su ID desde la API (para el detalle del personaje).
+ *  
+ * @param {string} id - ID del personaje a buscar(en este caso es string porque mockAPI toma al id como string).
+ * @returns {Object} 
+ */
 export async function getPersonajeID(id) {
     try {
       const response = await fetch(

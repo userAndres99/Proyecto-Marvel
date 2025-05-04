@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getInformacion } from "../../services/getInformacion";
-import { getPersonaje } from "../../services/buscarPersonaje";
+import { getPersonajeNombre } from "../../services/getPersonajeNombre";
 import ListarPersonajes from "../../components/ListarPersonajes/ListarPersonajes";
 import Fondo from "../../components/Fondo/Fondo"; 
+import Titulo from "../../components/Titulo/Titulo";  // Importamos el componente Titulo
+import Boton from "../../components/Boton/Boton";  // Importamos el componente Boton
 
 const Personajes = () => {
   const location = useLocation();
@@ -29,7 +31,7 @@ const Personajes = () => {
     async function obtenerPersonajes() {
       try {
         if (busqueda) {
-          const personajeEncontrado = await getPersonaje(busqueda);
+          const personajeEncontrado = await getPersonajeNombre(busqueda);
           setPersonajes(personajeEncontrado ? [personajeEncontrado] : []);
           // En busquedas va a ser un solo personaje el resultado por eso le pongo false a tieneMas
           setTieneMas(false);
@@ -52,7 +54,12 @@ const Personajes = () => {
   }, [busqueda, esHeroe, paginaActual]);
 
   if (cargando) {
-    return <p className="mt-20 text-center text-xl">Cargando personajes...</p>;
+    return (
+      <Titulo 
+        texto="Cargando personajes..." 
+        clase="mt-20 text-center text-xl"
+      />
+    );
   }
 
   // para cambiar la pagina...ponemos el numerito por url
@@ -70,22 +77,23 @@ const Personajes = () => {
       <Fondo />
 
       <div className="relative z-10 container mx-auto p-8 mt-10">
-        <div className="flex justify-start w-full">
-          <button
-            onClick={() => navigate(-1)}
-            className="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-          >
-            Volver
-          </button>
-        </div>
+      <div className="flex justify-start w-full">
+        <Boton 
+          text="Volver" 
+          onClick={() => navigate(-1)}
+          clase="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+        />
+      </div>
         {busqueda ? (
-          <h1 className="text-4xl font-bold text-center mb-8">
-            Resultado de búsqueda: {busqueda}
-          </h1>
+          <Titulo
+          texto={`Resultado de búsqueda: ${busqueda}`}
+          clase="text-4xl font-bold text-center mb-8"
+        />
         ) : (
-          <h1 className="text-4xl font-bold text-center mb-8">
-            {esHeroe ? "Héroes" : "Villanos"}
-          </h1>
+          <Titulo
+            texto={esHeroe ? "Héroes" : "Villanos"}
+            clase="text-4xl font-bold text-center mb-8"
+          />
         )}
         {personajes.length > 0 ? (
           <>
@@ -96,25 +104,26 @@ const Personajes = () => {
             )}
             {!busqueda && (
               <div className="flex justify-center mt-8 space-x-4">
-                <button
-                  onClick={() => cambiarPagina(paginaActual - 1)}
-                  disabled={paginaActual === 1}
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded disabled:opacity-50"
-                >
-                  Anterior
-                </button>
-                <button
-                  onClick={() => cambiarPagina(paginaActual + 1)}
-                  disabled={!tieneMas}
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded disabled:opacity-50"
-                >
-                  Siguiente
-                </button>
-              </div>
+              <Boton 
+                text="Anterior"
+                onClick={() => cambiarPagina(paginaActual - 1)}
+                disabled={paginaActual === 1}
+                clase="bg-gray-300 hover:bg-gray-400 text-gray-800 disabled:opacity-50"
+              />
+              <Boton 
+                text="Siguiente"
+                onClick={() => cambiarPagina(paginaActual + 1)}
+                disabled={!tieneMas}
+                clase="bg-gray-300 hover:bg-gray-400 text-gray-800 disabled:opacity-50"
+              />
+            </div>
             )}
           </>
         ) : (
-          <p>No se encontró el personaje.</p>
+          <Titulo
+            texto="No se encontró el personaje."
+            clase="text-2xl text-center mt-8"
+          />
         )}
       </div>
     </div>

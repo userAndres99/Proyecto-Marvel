@@ -1,14 +1,12 @@
-// src/services/buscarPersonaje.js
-
 /**
- * Obtiene un personaje filtrando por nombre.
+ * Obtiene un personaje filtrando por nombre(para el buscador).
  * Se hace una consulta a la API usando el parámetro "nombre".
  * Retorna el primer resultado (o null si no se encuentra ninguno).
  * 
  * @param {string} nombre 
  * @returns {Object}
  */
-export async function getPersonaje(nombre) {
+export async function getPersonajeNombre(nombre) {
   const url = `https://6810fac427f2fdac24138f1f.mockapi.io/api/v1/personajes?nombre=${encodeURIComponent(nombre)}`;
   const response = await fetch(url);
   if (!response.ok) {

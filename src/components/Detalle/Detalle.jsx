@@ -1,8 +1,15 @@
 import React from "react";
+import Boton from "../Boton/Boton"; 
+import Titulo from "../Titulo/Titulo";
 
 const Detalle = ({ personaje }) => {
   if (!personaje) {
-    return <p>No se han recibido datos del personaje.</p>;
+    return (
+      <Titulo 
+        texto="No se han recibido datos del personaje." 
+        clase="text-xl text-center"
+      />
+    );
   }
 
   return (
@@ -35,11 +42,11 @@ const Detalle = ({ personaje }) => {
             <span className="font-semibold">Tipo:</span> {personaje.heroe ? "Héroe" : "Villano"}
           </p>
         </div>
-        <button
-          className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded self-start"
-        >
-          Añadir a Favoritos
-        </button>
+        <Boton 
+          text="Añadir a Favoritos"
+          onClick={() => console.log("Añadir a Favoritos")}
+          clase="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded self-start"
+        />
       </div>
     </div>
   );
