@@ -1,7 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link  } from "react-router-dom";
 import Boton from "../Boton/Boton";
-import Titulo from "../Titulo/Titulo";
 import { Buscador } from "../Buscador/Buscador";
 
 const Header = () => {
@@ -14,12 +13,14 @@ const Header = () => {
   return (
     <header className="bg-gray-900 text-white fixed top-0 left-0 right-0 w-full z-50 shadow-md px-6 py-2 flex items-center justify-between">
       <div className="flex items-center gap-6">
-        <img
-          src="/public/icons-marvel.png"
-          alt="Marvel Logo"
-          className="h-16 w-auto"
-        />
-        <Titulo text="Proyecto Marvel" />
+      <Link to="/">
+          <img
+            src="/public/Marvel-Comics-Logo.png"
+            alt="Marvel Logo"
+            className="h-17 w-70"
+          />
+        </Link>
+        
         <Buscador onBuscar={handleBuscar} />
       </div>
 

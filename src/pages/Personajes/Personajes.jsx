@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { getInformacion } from "../../services/getInformacion";
 import { getPersonaje } from "../../services/buscarPersonaje";
 import ListarPersonajes from "../../components/ListarPersonajes/ListarPersonajes";
+import Fondo from "../../components/Fondo/Fondo"; 
 
 const Personajes = () => {
   const location = useLocation();
@@ -57,50 +58,65 @@ const Personajes = () => {
   // para cambiar la pagina...ponemos el numerito por url
   const cambiarPagina = (nuevaPagina) => {
     navigate(`/personajes?heroe=${esHeroe}&page=${nuevaPagina}`);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (
-    <div className="container mx-auto p-8 mt-20">
-      <div className="flex justify-start w-full">
-        <button
-          onClick={() => navigate(-1)}
-          className="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-        >
-          Volver
-        </button>
+  
+    <div className="relative min-h-screen">
+      <Fondo />
+
+      <div className="relative z-10 container mx-auto p-8 mt-10">
+        <div className="flex justify-start w-full">
+          <button
+            onClick={() => navigate(-1)}
+            className="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+          >
+            Volver
+          </button>
+        </div>
+        {busqueda ? (
+          <h1 className="text-4xl font-bold text-center mb-8">
+            Resultado de búsqueda: {busqueda}
+          </h1>
+        ) : (
+          <h1 className="text-4xl font-bold text-center mb-8">
+            {esHeroe ? "Héroes" : "Villanos"}
+          </h1>
+        )}
+        {personajes.length > 0 ? (
+          <>
+            {busqueda ? (
+              <ListarPersonajes personajes={personajes} centrado={true} />  //si es busqueda lo centramos sino no
+            ) : (
+              <ListarPersonajes personajes={personajes} />
+            )}
+            {!busqueda && (
+              <div className="flex justify-center mt-8 space-x-4">
+                <button
+                  onClick={() => cambiarPagina(paginaActual - 1)}
+                  disabled={paginaActual === 1}
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded disabled:opacity-50"
+                >
+                  Anterior
+                </button>
+                <button
+                  onClick={() => cambiarPagina(paginaActual + 1)}
+                  disabled={!tieneMas}
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded disabled:opacity-50"
+                >
+                  Siguiente
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <p>No se encontró el personaje.</p>
+        )}
       </div>
-      {busqueda ? (
-        <h1 className="text-4xl font-bold text-center mb-8">
-          Resultado de búsqueda: {busqueda}
-        </h1>
-      ) : (
-        <h1 className="text-4xl font-bold text-center mb-8">
-          {esHeroe ? "Héroes" : "Villanos"}
-        </h1>
-      )}
-      {personajes.length > 0 ? (
-        <>
-          <ListarPersonajes personajes={personajes} />
-          <div className="flex justify-center mt-8 space-x-4">
-            <button
-              onClick={() => cambiarPagina(paginaActual - 1)}
-              disabled={paginaActual === 1}
-              className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded disabled:opacity-50"
-            >
-              Anterior
-            </button>
-            <button
-              onClick={() => cambiarPagina(paginaActual + 1)}
-              disabled={!tieneMas}
-              className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded disabled:opacity-50"
-            >
-              Siguiente
-            </button>
-          </div>
-        </>
-      ) : (
-        <p>No se encontró el personaje.</p>
-      )}
     </div>
   );
 };
