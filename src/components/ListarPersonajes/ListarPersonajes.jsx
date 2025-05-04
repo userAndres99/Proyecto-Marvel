@@ -26,7 +26,7 @@ const ListarPersonajes = ({ personajes, centrado = false }) => {
           <Link to={`/detallePersonaje/${personaje.id}`} state={{ personaje }}>
             <Boton 
               text="Detalles" 
-              clase="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+              clase="bg-blue-600 hover:bg-blue-700 text-blue px-4 py-2 rounded"
             />
           </Link>
         </div>

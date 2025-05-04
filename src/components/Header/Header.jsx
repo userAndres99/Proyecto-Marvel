@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-900 text-white fixed top-0 left-0 right-0 w-full z-50 shadow-md px-6 py-2 flex items-center justify-between">
+    <header className="bg-gray-900 text-blue fixed top-0 left-0 right-0 w-full z-50 shadow-md px-6 py-2 flex items-center justify-between">
       <div className="flex items-center gap-6">
       <Link to="/">
           <img

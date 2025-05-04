@@ -7,8 +7,8 @@ import Titulo from "../../components/Titulo/Titulo";
 import Boton from "../../components/Boton/Boton";
 
 export function DetallePersonaje() {
-  const location = useLocation();
-  const { id } = useParams();
+  const location = useLocation(); // toma los datos de el state en el Link  
+  const { id } = useParams(); // tomas el id que viene en la url, al cambiar el el id en la url se cambia en la variable
   const navigate = useNavigate();
 
   // aca si el personaje no existe, lo traemos de la API
@@ -42,7 +42,7 @@ export function DetallePersonaje() {
         <Boton 
           text="Volver" 
           onClick={() => navigate(-1)}
-          clase="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+          clase="mb-4 bg-blue-600 hover:bg-blue-700 text-blue px-4 py-2 rounded"
         />
       </div>
 

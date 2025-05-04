@@ -45,7 +45,7 @@ const Detalle = ({ personaje }) => {
         <Boton 
           text="Añadir a Favoritos"
           onClick={() => console.log("Añadir a Favoritos")}
-          clase="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded self-start"
+          clase="mt-6 bg-blue-600 hover:bg-blue-700 text-blue px-6 py-3 rounded self-start"
         />
       </div>
     </div>
