@@ -6,14 +6,22 @@ import ListarPersonajes from "../../components/ListarPersonajes/ListarPersonajes
 import Fondo from "../../components/Fondo/Fondo"; 
 import Titulo from "../../components/Titulo/Titulo";  // Importamos el componente Titulo
 import Boton from "../../components/Boton/Boton";  // Importamos el componente Boton
+import { useTranslation } from "react-i18next";
+
 
 const Personajes = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const parametrosURL = new URLSearchParams(location.search);  // Obtenemos los parámetros de búsqueda de la URL
+  const { t, i18n } = useTranslation();
+  let idiomaUsuario='en';
 
+  useEffect(() => {
+    i18n.changeLanguage(idiomaUsuario);
+  }, [idiomaUsuario, i18n]);
   // Parmetro de búsqueda
   const busqueda = parametrosURL.get("busqueda");  
+  
 
   // Selector para heroe o vilano
   const heroeParam = parametrosURL.get("heroe");  
@@ -45,7 +53,7 @@ const Personajes = () => {
           setTieneMas(datosSiguiente.length > 0); // Si hay mas datos en la siguiente pagina "tieneMas" es true
         }
       } catch (error) {
-        console.error("Error al cargar los personajes:", error);
+        console.error(t("loadingCharactersError"), error);
       } finally {
         setCargando(false);
       }
@@ -56,7 +64,7 @@ const Personajes = () => {
   if (cargando) {
     return (
       <Titulo 
-        texto="Cargando personajes..." 
+        texto={t("loadingCharacters")} 
         clase="mt-20 text-center text-xl"
       />
     );
@@ -81,20 +89,20 @@ const Personajes = () => {
       <div className="relative z-10 container mx-auto p-8 mt-10">
       <div className="flex justify-start w-full">
         <Boton 
-          text="Volver" 
+          text={t("back")} 
           onClick={() => navigate(-1)}
           clase="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
         />
       </div>
         {busqueda ? (
           <Titulo
-          texto={`Resultado de búsqueda: ${busqueda}`}
+          texto={`${t("searchResult")} ${busqueda}`}
           clase="text-4xl font-bold text-center mb-8"
         />
         ) : (
           <Titulo
-            texto={esHeroe ? "Héroes" : "Villanos"}
-            clase="text-4xl font-bold text-center mb-8"
+          texto={esHeroe ? t("heroes") : t("villains")}
+          clase="text-4xl font-bold text-center mb-8"
           />
         )}
         {personajes.length > 0 ? (
@@ -107,13 +115,13 @@ const Personajes = () => {
             {!busqueda && (
               <div className="flex justify-center mt-8 space-x-4">
               <Boton 
-                text="Anterior"
+                text={t("previous")}
                 onClick={() => cambiarPagina(paginaActual - 1)}
                 disabled={paginaActual === 1}
                 clase="bg-gray-300 hover:bg-gray-400 text-gray-800 disabled:opacity-50"
               />
               <Boton 
-                text="Siguiente"
+                text={t("next")}
                 onClick={() => cambiarPagina(paginaActual + 1)}
                 disabled={!tieneMas}
                 clase="bg-gray-300 hover:bg-gray-400 text-gray-800 disabled:opacity-50"
@@ -123,7 +131,7 @@ const Personajes = () => {
           </>
         ) : (
           <Titulo
-            texto="No se encontró el personaje."
+            texto={t("notFoundCharacter")}
             clase="text-2xl text-center mt-8"
           />
         )}

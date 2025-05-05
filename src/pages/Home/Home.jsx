@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+
 //---importacion de componentes
 import Boton from '../../components/Boton/Boton';
 //--------------------------------
@@ -8,7 +11,11 @@ import Boton from '../../components/Boton/Boton';
 export default function Home() {
   const [hovered, setHovered] = useState(null);
   const navigate = useNavigate();
-
+  const { t, i18n } = useTranslation();
+  let idiomaUsuario='en';
+  useEffect(() => {
+    i18n.changeLanguage(idiomaUsuario);
+  }, [idiomaUsuario, i18n]);
   return (
     <>
      
@@ -25,7 +32,7 @@ export default function Home() {
           }}
         >
           <Boton
-            text="Héroes"
+            text={t("heroes")}
             onClick={() => navigate('/personajes?heroe=true')} 
           />
         </div>
@@ -42,7 +49,7 @@ export default function Home() {
           }}
         >
           <Boton
-            text="Villanos"
+            text={t("villains")}
             onClick={() => navigate('/personajes?heroe=false')} 
           />
         </div>

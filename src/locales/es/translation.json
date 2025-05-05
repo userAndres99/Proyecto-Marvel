@@ -1,3 +1,16 @@
 {
-"clave" : "valor"
+"loading" : "Cargando detalles...",
+"back" : "Volver",
+"detailCharacter" : "Detalles del Personaje",
+"heroes": "Héroes",
+"villains": "Villanos",
+"loadingCharactersError": "Error al cargar los personajes",
+"loadingCharacters": "Cargando personajes...",
+"searchResult": "Resultados de la busqueda:",
+"previous": "Anterior",
+"next": "Siguiente",
+"notFoundCharacter":"No se encontró el personaje."
+
+
+
 }

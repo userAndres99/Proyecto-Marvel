@@ -6,7 +6,6 @@ import Personajes from './pages/Personajes/Personajes';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import { ROUTES } from './const/routes'; 
 import { DetallePersonaje } from './pages/DetallePersonaje/DetallePersonaje';
-import Idioma from "./pages/Idioma/Idioma";
 
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
           <Route path={ROUTES.Home} element={<Home />} /> 
           <Route path={ROUTES.Personajes} element={<Personajes />} />
           <Route path={ROUTES.Detalle} element={<DetallePersonaje/>}></Route>
-          <Route element={<Idioma />} path={ROUTES.idioma} />
         </Routes>
         <Footer />
       </div>
