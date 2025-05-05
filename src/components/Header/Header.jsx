@@ -11,7 +11,13 @@ const Header = () => {
   const handleBuscar = (nombreBuscado) => {
     navigate(`/personajes?busqueda=${encodeURIComponent(nombreBuscado)}`);
   };
+
   const { t, i18n } = useTranslation();
+
+  const cambiarIdioma = (idioma) => {
+    i18n.changeLanguage(idioma);
+    localStorage.setItem("idioma", idioma);
+  };
 
   return (
     <header className="bg-gray-900 text-blue fixed top-0 left-0 right-0 w-full z-50 shadow-md px-6 py-2 flex items-center justify-between">
@@ -27,9 +33,27 @@ const Header = () => {
         <Buscador onBuscar={handleBuscar} />
       </div>
 
-      <div className="flex items-center">
-  <Boton text={t("favorites")} onClick={() => navigate(ROUTES.Favoritos)} />
-</div>
+      <div className="flex items-center gap-4">
+        
+        <div className="relative">
+          <label htmlFor="idioma-select" className="sr-only">Idioma</label>
+          <select
+            id="idioma-select"
+            className="bg-gray-200 text-gray-800 px-3 py-1 rounded"
+            value={i18n.language}  // para mostrar el idioma actual
+            onChange={(e) => cambiarIdioma(e.target.value)}
+          >
+            <option value="es">Español</option>
+            <option value="en">Ingles</option>
+          </select>
+        </div>
+        
+        
+        <Boton
+          text={t("favorites")}
+          onClick={() => navigate(ROUTES.Favoritos)}
+        />
+      </div>
     </header>
   );
 };

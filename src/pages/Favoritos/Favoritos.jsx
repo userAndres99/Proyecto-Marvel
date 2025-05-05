@@ -9,10 +9,11 @@ export default function Favoritos() {
   const [favoritos, setFavoritos] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  let idiomaUsuario='en';
-    useEffect(() => {
-      i18n.changeLanguage(idiomaUsuario);
-    }, [idiomaUsuario, i18n]);
+  useEffect(() => {
+    // Leer el idioma guardado en el localStorage (por defecto español)
+    const idiomaUsuario = localStorage.getItem("idioma") || "es";
+    i18n.changeLanguage(idiomaUsuario);
+  }, [i18n]);
 
   useEffect(() => {
     // Obtener los IDs de favoritos guardados en localStorage

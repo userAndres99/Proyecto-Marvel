@@ -14,11 +14,12 @@ const Personajes = () => {
   const navigate = useNavigate();
   const parametrosURL = new URLSearchParams(location.search);  // Obtenemos los parámetros de búsqueda de la URL
   const { t, i18n } = useTranslation();
-  let idiomaUsuario='en';
-
+ 
   useEffect(() => {
+    // Leer el idioma guardado en el localStorage (por defecto español)
+    const idiomaUsuario = localStorage.getItem("idioma") || "es";
     i18n.changeLanguage(idiomaUsuario);
-  }, [idiomaUsuario, i18n]);
+  }, [i18n]);
   // Parmetro de búsqueda
   const busqueda = parametrosURL.get("busqueda");  
   

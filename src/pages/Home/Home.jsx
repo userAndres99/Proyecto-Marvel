@@ -12,11 +12,13 @@ import Boton from '../../components/Boton/Boton';
 export default function Home() {
   const [hovered, setHovered] = useState(null);
   const navigate = useNavigate();
+
   const { t, i18n } = useTranslation();
-  let idiomaUsuario='en';
   useEffect(() => {
+    // Leer el idioma guardado en el localStorage (por defecto español)
+    const idiomaUsuario = localStorage.getItem("idioma") || "es";
     i18n.changeLanguage(idiomaUsuario);
-  }, [idiomaUsuario, i18n]);
+  }, [i18n]);
   return (
     <>
      

@@ -14,11 +14,12 @@ export function DetallePersonaje() {
   const { id } = useParams(); // tomas el id que viene en la url, al cambiar el el id en la url se cambia en la variable
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  let idiomaUsuario='en';
-
+  
   useEffect(() => {
+    // Leer el idioma guardado en el localStorage (por defecto español)
+    const idiomaUsuario = localStorage.getItem("idioma") || "es";
     i18n.changeLanguage(idiomaUsuario);
-  }, [idiomaUsuario, i18n]);
+  }, [i18n]);
 
 
 
