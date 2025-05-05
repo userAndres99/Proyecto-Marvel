@@ -8,18 +8,19 @@ import { ROUTES } from './const/routes';
 import { DetallePersonaje } from './pages/DetallePersonaje/DetallePersonaje';
 import Favoritos from './pages/Favoritos/Favoritos';
 
-
 function App() {
   return (
     <BrowserRouter> 
-      <div className="App">
+      <div className="App flex flex-col min-h-screen">
         <Header />
-        <Routes>
-          <Route path={ROUTES.Home} element={<Home />} /> 
-          <Route path={ROUTES.Personajes} element={<Personajes />} />
-          <Route path={ROUTES.Detalle} element={<DetallePersonaje/>}></Route>
-          <Route path={ROUTES.Favoritos} element={<Favoritos />} />
-        </Routes>
+        <main className="flex-grow">
+          <Routes>
+            <Route path={ROUTES.Home} element={<Home />} /> 
+            <Route path={ROUTES.Personajes} element={<Personajes />} />
+            <Route path={ROUTES.Detalle} element={<DetallePersonaje />} />
+            <Route path={ROUTES.Favoritos} element={<Favoritos />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </BrowserRouter>

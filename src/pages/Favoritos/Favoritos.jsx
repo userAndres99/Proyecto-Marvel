@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Titulo from "../../components/Titulo/Titulo.jsx";
 import { getPersonajeID } from "../../services/getPersonajeID.js";
 import { useTranslation } from "react-i18next";
-import ListarPersonajes from "../../components/ListarPersonajes/ListarPersonajes"; // Importamos el componente de listado
+import ListarPersonajes from "../../components/ListarPersonajes/ListarPersonajes"; 
+import Fondo from "../../components/Fondo/Fondo"; 
 
 export default function Favoritos() {
   const { t, i18n } = useTranslation();;
@@ -46,9 +47,12 @@ export default function Favoritos() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto py-8">
+    <div className="relative min-h-screen">
+      <Fondo />
+      <div className="relative z-10 container mx-auto p-8 mt-10">
       <Titulo texto={t("favorites")} clase="text-3xl font-bold text-center mb-8" />
       <ListarPersonajes personajes={favoritos} />
+    </div>
     </div>
   );
 }
