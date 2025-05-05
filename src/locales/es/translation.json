@@ -9,8 +9,22 @@
 "searchResult": "Resultados de la busqueda:",
 "previous": "Anterior",
 "next": "Siguiente",
-"notFoundCharacter":"No se encontró el personaje."
-
+"notFoundCharacter":"No se encontró el personaje.",
+"details":"Detalles",
+"favorites":"Favoritos",
+"selectedFavorites":"Favoritos Seleccionados",
+    "rights":"© 2025 Proyecto Marvel. Todos los derechos reservados.",
+    "noCharacterData":"No se han recibido datos del personaje.",
+    "name":"Nombre",
+"alias":"Alias",
+"abilities":"Habilidades",
+"description":"Descripcion",
+"type":"Tipo",
+"heroe":"Héroe",
+"villain":"Villano",
+"addToFavorites":"Añadir a Favoritos",
+"searchPlaceholder":"Buscar nombre del heroe o villano...",
+"search":"Buscar"
 
 
 }

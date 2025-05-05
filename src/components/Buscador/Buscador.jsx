@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Boton from "../Boton/Boton.jsx";
 import Input from "../Input/Input.jsx";
+import { useTranslation } from "react-i18next";
 
 /**
  * Este componente permite buscar personajes por nombre.
@@ -9,6 +10,7 @@ import Input from "../Input/Input.jsx";
 export function Buscador({ onBuscar }) {
   // Estado para el valor del input
   const [inputValue, setInputValue] = useState("");
+  const { t, i18n } = useTranslation();
 
   // Actualiza el estado con el nuevo valor del input
   const handleChange = (nuevoValor) => {
@@ -30,10 +32,10 @@ export function Buscador({ onBuscar }) {
         name="busqueda"
         value={inputValue}
         onChange={handleChange}
-        placeholder="Buscar nombre del heroe o villano..."
+        placeholder={t("searchPlaceholder")}
         className="w-80 px-4 py-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500"
       />
-      <Boton text="Buscar" type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md" />
+      <Boton text={t("search")} type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md" />
     </form>
   );
 }

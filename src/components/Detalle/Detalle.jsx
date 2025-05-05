@@ -1,12 +1,15 @@
 import React from "react";
 import Boton from "../Boton/Boton"; 
 import Titulo from "../Titulo/Titulo";
+import { useTranslation } from "react-i18next";
 
 const Detalle = ({ personaje }) => {
+  const { t, i18n } = useTranslation();
+
   if (!personaje) {
     return (
       <Titulo 
-        texto="No se han recibido datos del personaje." 
+        texto={t("noCharacterData")}
         clase="text-xl text-center"
       />
     );
@@ -35,29 +38,29 @@ const Detalle = ({ personaje }) => {
                         backdrop-blur-md bg-white/20 rounded">
           <div className="space-y-6 drop-shadow-lg">
             <p className="text-3xl font-black">
-              <span className="underline">Nombre:</span> 
+              <span className="underline">{t("name")}:</span> 
               <span className="ml-2 font-black">{personaje.nombre}</span>
             </p>
             <p className="text-xl font-black">
-              <span className="underline">Alias:</span> 
+              <span className="underline">{t("alias")}:</span> 
               <span className="ml-2 font-black">{personaje.alias}</span>
             </p>
             <p className="text-xl font-black">
-              <span className="underline">Habilidades:</span> 
+              <span className="underline">{t("abilities")}:</span> 
               <span className="ml-2 font-black">{personaje.habilidades}</span>
             </p>
             <p className="text-xl font-black">
-              <span className="underline">Descripción:</span> 
+              <span className="underline">{t("description")}:</span> 
               <span className="ml-2 font-black">{personaje.descripcion}</span>
             </p>
             <p className="text-xl font-black">
-              <span className="underline">Tipo:</span> 
-              <span className="ml-2 font-black">{personaje.heroe ? "Héroe" : "Villano"}</span>
+              <span className="underline">{t("type")}:</span> 
+              <span className="ml-2 font-black">{t(personaje.heroe ? "heroe" : "villain")}</span>
             </p>
           </div>
           <Boton 
-            text="Añadir a Favoritos"
-            onClick={() => console.log("Añadir a Favoritos")}
+            text={t("addToFavorites")}
+            onClick={() => console.log(t("addToFavorites"))}
             clase="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded self-start"
           />
         </div>
