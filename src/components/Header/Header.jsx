@@ -39,7 +39,7 @@ const Header = () => {
           <label htmlFor="idioma-select" className="sr-only">Idioma</label>
           <select
             id="idioma-select"
-            className="bg-gray-200 text-gray-800 px-3 py-1 rounded"
+            className="bg-white text-gray-800 px-3 py-1 rounded"
             value={i18n.language}  // para mostrar el idioma actual
             onChange={(e) => cambiarIdioma(e.target.value)}
           >
@@ -52,6 +52,7 @@ const Header = () => {
         <Boton
           text={t("favorites")}
           onClick={() => navigate(ROUTES.Favoritos)}
+          clase = "bg-white hover:bg-gray-300"
         />
       </div>
     </header>

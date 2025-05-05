@@ -101,7 +101,7 @@ const Detalle = ({ personaje }) => {
                 : t("addToFavorites")
             }
             onClick={esFavorito ? eliminarDeFavoritos : agregarAFavoritos}
-            clase="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded self-start"
+            clase="mt-6 bg-red-600 hover:bg-red-800 text-white px-6 py-3 rounded self-start"
           />
         </div>
       </div>

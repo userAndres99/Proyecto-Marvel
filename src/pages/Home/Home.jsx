@@ -36,7 +36,9 @@ export default function Home() {
         >
           <Boton
             text={t("heroes")}
-            onClick={() => navigate(`${ROUTES.Personajes}?heroe=true`)} 
+            onClick={() => navigate(`${ROUTES.Personajes}?heroe=true`)}
+            clase= "bg-red-500 hover:bg-red-800 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300"
+
           />
         </div>
 
@@ -54,6 +56,8 @@ export default function Home() {
           <Boton
             text={t("villains")}
             onClick={() => navigate(`${ROUTES.Personajes}?heroe=false`)}
+            clase= "bg-red-500 hover:bg-red-800 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300"
+
           />
         </div>
       </div>

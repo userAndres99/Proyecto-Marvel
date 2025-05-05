@@ -31,11 +31,11 @@ const ListarPersonajes = ({ personajes, centrado = false }) => {
               className="w-full h-full object-cover"
             />
           </div>
-          <h2 className="text-xl font-bold mb-2">{personaje.nombre}</h2>
+          <h2 className="text-xl font-bold mb-2 text-white">{personaje.nombre}</h2>
           <Link to={`${ROUTES.Detalle.replace(":id", personaje.id)}`} state={{ personaje }}>
             <Boton 
               text={t("details")}
-              clase="bg-blue-600 hover:bg-blue-700 text-blue px-4 py-2 rounded"
+              clase="bg-red-600 hover:bg-red-800 text-white px-4 py-2 rounded"
             />
           </Link>
         </div>
