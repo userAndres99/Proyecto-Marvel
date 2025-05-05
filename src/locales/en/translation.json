@@ -25,5 +25,6 @@
 "addToFavorites":"Add to Favorites",
 "searchPlaceholder":"Search for the name of the hero or villain...",
 "search":"Search",
-"removeFromFavorites": "Remove from Favorites"
+"removeFromFavorites": "Remove from Favorites",
+"resultFavorites": "No favorites saved"
 }

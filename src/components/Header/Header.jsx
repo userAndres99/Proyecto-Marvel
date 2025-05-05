@@ -3,6 +3,7 @@ import { useNavigate,Link  } from "react-router-dom";
 import Boton from "../Boton/Boton";
 import { Buscador } from "../Buscador/Buscador";
 import { useTranslation } from "react-i18next";
+import { ROUTES } from "../../const/routes";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -27,8 +28,8 @@ const Header = () => {
       </div>
 
       <div className="flex items-center">
-        <Boton text={t("favorites")} onClick={() => console.log(t("selectedFavorites"))} />
-      </div>
+  <Boton text={t("favorites")} onClick={() => navigate(ROUTES.Favoritos)} />
+</div>
     </header>
   );
 };

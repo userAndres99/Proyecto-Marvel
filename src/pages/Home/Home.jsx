@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
+import { ROUTES } from '../../const/routes';
 
 //---importacion de componentes
 import Boton from '../../components/Boton/Boton';
@@ -33,7 +34,7 @@ export default function Home() {
         >
           <Boton
             text={t("heroes")}
-            onClick={() => navigate('/personajes?heroe=true')} 
+            onClick={() => navigate(`${ROUTES.Personajes}?heroe=true`)} 
           />
         </div>
 
@@ -50,7 +51,7 @@ export default function Home() {
         >
           <Boton
             text={t("villains")}
-            onClick={() => navigate('/personajes?heroe=false')} 
+            onClick={() => navigate(`${ROUTES.Personajes}?heroe=false`)}
           />
         </div>
       </div>

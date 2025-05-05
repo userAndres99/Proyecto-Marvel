@@ -6,6 +6,7 @@ import Personajes from './pages/Personajes/Personajes';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import { ROUTES } from './const/routes'; 
 import { DetallePersonaje } from './pages/DetallePersonaje/DetallePersonaje';
+import Favoritos from './pages/Favoritos/Favoritos';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path={ROUTES.Home} element={<Home />} /> 
           <Route path={ROUTES.Personajes} element={<Personajes />} />
           <Route path={ROUTES.Detalle} element={<DetallePersonaje/>}></Route>
+          <Route path={ROUTES.Favoritos} element={<Favoritos />} />
         </Routes>
         <Footer />
       </div>

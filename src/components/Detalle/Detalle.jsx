@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 
 const Detalle = ({ personaje }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   if (!personaje) {
     return (
