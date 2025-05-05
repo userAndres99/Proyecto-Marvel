@@ -1,8 +1,7 @@
 export const ROUTES = {
     Home: '/',
     Personajes: '/personajes',
-    Favoriotos: '/favoritos',
+    Favoritos: '/favoritos',
     Detalle: '/detallePersonaje/:id',
     idioma: "/Idioma",
-
 };

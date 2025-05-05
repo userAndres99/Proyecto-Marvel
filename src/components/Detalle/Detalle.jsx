@@ -2,6 +2,7 @@ import React from "react";
 import Boton from "../Boton/Boton"; 
 import Titulo from "../Titulo/Titulo";
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
 
 const Detalle = ({ personaje }) => {
   const { t, i18n } = useTranslation();
@@ -14,6 +15,41 @@ const Detalle = ({ personaje }) => {
       />
     );
   }
+
+  const [esFavorito, setEsFavorito] = useState(false);
+
+  // Comprobar si el personaje es favorito 
+  useEffect(() => {
+    const favoritosGuardados = localStorage.getItem("favoritos");
+    const favoritos = favoritosGuardados ? JSON.parse(favoritosGuardados) : [];
+    setEsFavorito(favoritos.includes(personaje.id));
+  }, [personaje.id]);
+
+  // Función para agregar
+  const agregarAFavoritos = () => {
+    const favoritosGuardados = localStorage.getItem("favoritos");
+    const favoritos = favoritosGuardados ? JSON.parse(favoritosGuardados) : [];
+
+    if (!favoritos.includes(personaje.id)) {
+      favoritos.push(personaje.id);
+      localStorage.setItem("favoritos", JSON.stringify(favoritos));
+      setEsFavorito(true);
+      //console.log(`Personaje con id ${personaje.id} añadido a favoritos`);
+    }
+  };
+
+  // Función para eliminar 
+  const eliminarDeFavoritos = () => {
+    const favoritosGuardados = localStorage.getItem("favoritos");
+    const favoritos = favoritosGuardados ? JSON.parse(favoritosGuardados) : [];
+
+    if (favoritos.includes(personaje.id)) {
+      const nuevosFavoritos = favoritos.filter((favId) => favId !== personaje.id);
+      localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
+      setEsFavorito(false);
+     // console.log(`Personaje con id ${personaje.id} eliminado de favoritos`);
+    }
+  };
 
   return (
     <div className="relative max-w-4xl mx-auto rounded overflow-hidden">
@@ -59,8 +95,12 @@ const Detalle = ({ personaje }) => {
             </p>
           </div>
           <Boton 
-            text={t("addToFavorites")}
-            onClick={() => console.log(t("addToFavorites"))}
+            text={
+              esFavorito
+                ? t("removeFromFavorites") 
+                : t("addToFavorites")
+            }
+            onClick={esFavorito ? eliminarDeFavoritos : agregarAFavoritos}
             clase="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded self-start"
           />
         </div>

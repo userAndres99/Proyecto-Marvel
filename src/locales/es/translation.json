@@ -24,7 +24,6 @@
 "villain":"Villano",
 "addToFavorites":"Añadir a Favoritos",
 "searchPlaceholder":"Buscar nombre del heroe o villano...",
-"search":"Buscar"
-
-
+"search":"Buscar",
+"removeFromFavorites": "Eliminar de Favoritos"
 }
