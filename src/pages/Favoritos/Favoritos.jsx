@@ -13,7 +13,6 @@ export default function Favoritos() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate(); 
 
-
   useEffect(() => {
     // Leer el idioma guardado en el localStorage (por defecto español)
     const idiomaUsuario = localStorage.getItem("idioma") || "es";
@@ -46,7 +45,19 @@ export default function Favoritos() {
 
   if (favoritos.length === 0) {
     return (
-      <Titulo texto={t("resultFavorites")} clase="text-xl text-center my-8" />
+      <div className="relative min-h-screen">
+        <Fondo />
+        <div className="relative z-10 container mx-auto p-8 mt-10">
+          <div className="flex justify-start w-full">
+            <Boton 
+              text={t("back")} 
+              onClick={() => navigate(-1)}
+              clase="mb-4 bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded"
+            />
+          </div>
+          <Titulo texto={t("resultFavorites")} clase="text-xl text-center my-8" />
+        </div>
+      </div>
     );
   }
 
@@ -54,16 +65,16 @@ export default function Favoritos() {
     <div className="relative min-h-screen">
       <Fondo />
       <div className="relative z-10 container mx-auto p-8 mt-10">
-      <div className="flex justify-start w-full">
+        <div className="flex justify-start w-full">
           <Boton 
             text={t("back")} 
             onClick={() => navigate(-1)}
             clase="mb-4 bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded"
           />
         </div>
-      <Titulo texto={t("favorites")} clase="text-3xl font-bold text-center mb-8" />
-      <ListarPersonajes personajes={favoritos} />
-    </div>
+        <Titulo texto={t("favorites")} clase="text-3xl font-bold text-center mb-8" />
+        <ListarPersonajes personajes={favoritos} />
+      </div>
     </div>
   );
 }

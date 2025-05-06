@@ -26,5 +26,7 @@
 "searchPlaceholder":"Buscar nombre del heroe o villano...",
 "search":"Buscar",
 "removeFromFavorites": "Eliminar de Favoritos",
-"resultFavorites": "No hay favoritos guardados"
+"resultFavorites": "No hay favoritos guardados",
+"pageNotFound": "Página no encontrada error 404",
+"backToHome":"Volver a la página de inicio"
 }

@@ -26,5 +26,7 @@
 "searchPlaceholder":"Search for the name of the hero or villain...",
 "search":"Search",
 "removeFromFavorites": "Remove from Favorites",
-"resultFavorites": "No favorites saved"
+"resultFavorites": "No favorites saved",
+"pageNotFound": "Page not found error 404",
+"backToHome":"Back to home page"
 }
