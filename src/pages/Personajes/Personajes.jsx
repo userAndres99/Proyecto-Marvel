@@ -68,10 +68,20 @@ const Personajes = () => {
 
   if (cargando) {
     return (
-      <Titulo 
-        texto={t("loadingCharacters")} 
-        clase="mt-20 text-center text-xl"
-      />
+      <div className="relative min-h-[calc(100vh-60px)] flex flex-col justify-center items-center">
+        <Fondo />
+        <div className="relative z-10 container mx-auto p-8 flex flex-col items-center">
+          <Titulo 
+            texto={t("loadingCharacters")} 
+            clase="text-center text-xl"
+          />
+          <img 
+            src="/marvelLoading.gif" 
+            alt="Loading Marvel" 
+            className="mt-4 w-80" 
+          />
+        </div>
+      </div>
     );
   }
 
