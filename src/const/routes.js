@@ -4,4 +4,5 @@ export const ROUTES = {
     Favoritos: '/favoritos',
     Detalle: '/detallePersonaje/:id',
     idioma: "/Idioma",
+    NotFound: '*' 
 };

@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ROUTES } from './const/routes'; 
 import { DetallePersonaje } from './pages/DetallePersonaje/DetallePersonaje';
 import Favoritos from './pages/Favoritos/Favoritos';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path={ROUTES.Personajes} element={<Personajes />} />
             <Route path={ROUTES.Detalle} element={<DetallePersonaje />} />
             <Route path={ROUTES.Favoritos} element={<Favoritos />} />
+            <Route path={ROUTES.NotFound} element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
