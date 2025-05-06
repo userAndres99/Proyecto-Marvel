@@ -13,7 +13,7 @@
 "details":"Detalles",
 "favorites":"Favoritos",
 "selectedFavorites":"Favoritos Seleccionados",
-    "rights":"© 2025 Proyecto Marvel. Todos los derechos reservados.",
+    "rights":" Todos los derechos reservados.",
     "noCharacterData":"No se han recibido datos del personaje.",
     "name":"Nombre",
 "alias":"Alias",
@@ -28,5 +28,8 @@
 "removeFromFavorites": "Eliminar de Favoritos",
 "resultFavorites": "No hay favoritos guardados",
 "pageNotFound": "Página no encontrada error 404",
-"backToHome":"Volver a la página de inicio"
+"backToHome":"Volver a la página de inicio",
+"proyectMarvel":"Proyecto Marvel",
+"propiety":"Marvel, todos los personajes e imágenes son propiedad de Marvel Entertainment, LLC."
+
 }
