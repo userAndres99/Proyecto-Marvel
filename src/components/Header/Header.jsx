@@ -24,7 +24,7 @@ const Header = () => {
       <div className="flex items-center gap-6">
       <Link to="/">
           <img
-            src="/public/Marvel-Comics-Logo.png"
+            src="/Marvel-Comics-Logo.png"
             alt="Marvel Logo"
             className="h-17 w-70"
           />
