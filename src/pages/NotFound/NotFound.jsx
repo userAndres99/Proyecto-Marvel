@@ -4,6 +4,7 @@ import Titulo from "../../components/Titulo/Titulo";
 import Boton from "../../components/Boton/Boton";
 import Fondo from "../../components/Fondo/Fondo";
 import { useTranslation } from "react-i18next";
+import { ROUTES } from "../../const/routes";
 
 const NotFound = () => {
   const { t } = useTranslation();
@@ -23,7 +24,7 @@ const NotFound = () => {
         
         <Boton 
           text={t("backToHome") || "Volver a inicio"}
-          onClick={() => navigate("/")}
+          onClick={() => navigate(ROUTES.Home)}
           clase="mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded"
         />
       </div>

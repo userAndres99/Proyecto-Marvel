@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleBuscar = (nombreBuscado) => {
-    navigate(`/personajes?busqueda=${encodeURIComponent(nombreBuscado)}`);
+    navigate(`${ROUTES.Personajes}?busqueda=${encodeURIComponent(nombreBuscado)}`);
   };
 
   const { t, i18n } = useTranslation();
