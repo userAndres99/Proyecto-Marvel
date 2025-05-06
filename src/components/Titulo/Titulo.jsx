@@ -1,6 +1,8 @@
 const Titulo = ({ texto, clase }) => {
   return (
-    <h1 className={`${clase} font-semibold text-gray-200`}>{texto}</h1>
+    <div className="px-4 py-1 bg-black/70 backdrop-blur-md rounded-lg inline-block">
+      <h1 className={`${clase} font-bold text-white`}>{texto}</h1>
+    </div>
   );
 };
 

@@ -52,7 +52,7 @@ const Header = () => {
         <Boton
           text={t("favorites")}
           onClick={() => navigate(ROUTES.Favoritos)}
-          clase = "bg-white hover:bg-gray-300"
+          clase="bg-red-600 hover:bg-red-900 text-white px-4 py-2 rounded-md"
         />
       </div>
     </header>

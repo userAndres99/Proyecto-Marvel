@@ -54,7 +54,7 @@ export function DetallePersonaje() {
         <Boton 
           text={t("back")} 
           onClick={() => navigate(-1)}
-          clase="mb-4 bg-blue-600 hover:bg-blue-700 text-blue px-4 py-2 rounded"
+          clase="bg-gray-300 hover:bg-gray-400 text-gray-800 disabled:opacity-50"
         />
       </div>
 

@@ -70,37 +70,32 @@ const Detalle = ({ personaje }) => {
         </div>
         
         {/* Parte derecha */}
-        <div className="md:w-1/2 flex flex-col justify-between text-left p-4 text-blue-950 
-                        backdrop-blur-md bg-white/20 rounded">
+        <div className="md:w-1/2 flex flex-col justify-between text-left p-4 text-white backdrop-blur-md bg-black/70 rounded">
           <div className="space-y-6 drop-shadow-lg">
             <p className="text-3xl font-black">
-              <span className="underline">{t("name")}:</span> 
+              <span className="underline text-red-600">{t("name")}:</span>
               <span className="ml-2 font-black">{personaje.nombre}</span>
             </p>
             <p className="text-xl font-black">
-              <span className="underline">{t("alias")}:</span> 
+              <span className="underline text-red-600">{t("alias")}:</span>
               <span className="ml-2 font-black">{personaje.alias}</span>
             </p>
             <p className="text-xl font-black">
-              <span className="underline">{t("abilities")}:</span> 
+              <span className="underline text-red-600">{t("abilities")}:</span>
               <span className="ml-2 font-black">{personaje.habilidades}</span>
             </p>
             <p className="text-xl font-black">
-              <span className="underline">{t("description")}:</span> 
+              <span className="underline text-red-600">{t("description")}:</span>
               <span className="ml-2 font-black">{personaje.descripcion}</span>
             </p>
             <p className="text-xl font-black">
-              <span className="underline">{t("type")}:</span> 
+              <span className="underline text-red-600">{t("type")}:</span>
               <span className="ml-2 font-black">{t(personaje.heroe ? "heroe" : "villain")}</span>
             </p>
           </div>
           <Boton 
-            text={
-              esFavorito
-                ? t("removeFromFavorites") 
-                : t("addToFavorites")
-            }
-            onClick={esFavorito ? eliminarDeFavoritos : agregarAFavoritos}
+            text={ esFavorito ? t("removeFromFavorites") : t("addToFavorites") }
+            onClick={ esFavorito ? eliminarDeFavoritos : agregarAFavoritos }
             clase="mt-6 bg-red-600 hover:bg-red-800 text-white px-6 py-3 rounded self-start"
           />
         </div>

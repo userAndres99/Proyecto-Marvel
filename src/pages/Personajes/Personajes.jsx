@@ -84,7 +84,7 @@ const Personajes = () => {
 
   return (
   
-    <div className="relative min-h-screen">
+    <div className="relative min-h-[calc(100vh-60px)]">
       <Fondo />
 
       <div className="relative z-10 container mx-auto p-8 mt-10">
@@ -92,7 +92,7 @@ const Personajes = () => {
         <Boton 
           text={t("back")} 
           onClick={() => navigate(-1)}
-          clase="mb-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+          clase="bg-gray-300 hover:bg-gray-400 text-gray-800 disabled:opacity-50"
         />
       </div>
         {busqueda ? (
@@ -103,7 +103,7 @@ const Personajes = () => {
         ) : (
           <Titulo
           texto={esHeroe ? t("heroes") : t("villains")}
-          clase="text-4xl font-bold text-center mb-8"
+          clase="inline-block text-4xl font-bold px-2 py-1 rounded-md"
           />
         )}
         {personajes.length > 0 ? (
