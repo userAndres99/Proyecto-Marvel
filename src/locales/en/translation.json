@@ -30,5 +30,8 @@
 "pageNotFound": "Page not found error 404",
 "backToHome":"Back to home page",
 "proyectMarvel":"Proyect Marvel",
-"propiety":"Marvel, all characters and images are property of Marvel Entertainment, LLC ."
+"propiety":"Marvel, all characters and images are property of Marvel Entertainment, LLC .",
+"noDescription":"No description",
+"downloadPDF":"Download in Pdf",
+"noAbilities":"No Abilities"
 }

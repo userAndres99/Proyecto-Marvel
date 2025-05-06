@@ -30,6 +30,10 @@
 "pageNotFound": "Página no encontrada error 404",
 "backToHome":"Volver a la página de inicio",
 "proyectMarvel":"Proyecto Marvel",
-"propiety":"Marvel, todos los personajes e imágenes son propiedad de Marvel Entertainment, LLC."
+"propiety":"Marvel, todos los personajes e imágenes son propiedad de Marvel Entertainment, LLC.",
+"noDescription":"Sin descripcion",
+"downloadPDF":"Descargar en Pdf",
+"noAbilities":"No Hay Habilidades"
+
 
 }
