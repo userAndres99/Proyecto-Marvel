@@ -25,41 +25,42 @@ export default function Home() {
       <div className="flex h-screen mt-10">
         {/* Mitad Heroes */}
         <div
-          onMouseEnter={() => setHovered('heroes')}
-          onMouseLeave={() => setHovered(null)}
-          className="w-1/2 bg-cover bg-center flex items-center justify-end pr-15 transition-all duration-300"
-          style={{
-            backgroundImage: "url('/heroes.jpg')",
-            clipPath: 'polygon(0 0, 100% 0, 80% 100%, 0 100%)',
-            filter: hovered === 'villanos' ? 'blur(3px)' : 'none',
-          }}
-        >
-          <Boton
-            text={t("heroes")}
-            onClick={() => navigate(`${ROUTES.Personajes}?heroe=true`)}
-            clase= "bg-red-500 hover:bg-red-800 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300"
+  onMouseEnter={() => setHovered('heroes')}
+  onMouseLeave={() => setHovered(null)}
+  onClick={() => navigate(`${ROUTES.Personajes}?heroe=true`)}
+  className="w-1/2 bg-cover bg-center relative flex justify-center transition-all duration-300 cursor-pointer hover:brightness-90"
+  style={{
+    backgroundImage: "url('/heroes.jpg')",
+    clipPath: 'polygon(0 0, 100% 0, 80% 100%, 0 100%)',
+    filter: hovered === 'villanos' ? 'blur(3px)' : 'none',
+  }}
+>
+  <div className="absolute top-10 bg-red-700/80 px-5 py-3 rounded-lg shadow-lg">
+    <h2 className="text-white text-6xl font-bold text-center">
+      {t("heroes")}
+    </h2>
+  </div>
+</div>
 
-          />
-        </div>
+<div
+  onMouseEnter={() => setHovered('villanos')}
+  onMouseLeave={() => setHovered(null)}
+  onClick={() => navigate(`${ROUTES.Personajes}?heroe=false`)}
+  className="w-1/2 bg-cover bg-center relative flex justify-center transition-all duration-300 cursor-pointer hover:brightness-90"
+  style={{
+    backgroundImage: "url('/villanos.webp')",
+    clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0 100%)',
+    filter: hovered === 'heroes' ? 'blur(3px)' : 'none',
+  }}
+>
+  <div className="absolute top-10 bg-red-700/80 px-10 py-6 rounded-lg shadow-lg">
+  <h2 className="text-white text-6xl font-bold text-center">
+  {t("villains")}
+    </h2>
+  </div>
+</div>
 
-        {/* Mitad Villanos */}
-        <div
-          onMouseEnter={() => setHovered('villanos')}
-          onMouseLeave={() => setHovered(null)}
-          className="w-1/2 bg-cover bg-center flex items-center justify-start pl-15 transition-all duration-300"
-          style={{
-            backgroundImage: "url('/villanos.webp')",
-            clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0 100%)',
-            filter: hovered === 'heroes' ? 'blur(3px)' : 'none',
-          }}
-        >
-          <Boton
-            text={t("villains")}
-            onClick={() => navigate(`${ROUTES.Personajes}?heroe=false`)}
-            clase= "bg-red-500 hover:bg-red-800 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300"
 
-          />
-        </div>
       </div>
 
     </>
