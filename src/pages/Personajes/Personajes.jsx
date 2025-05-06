@@ -143,10 +143,18 @@ const Personajes = () => {
             )}
           </>
         ) : (
-          <Titulo
-            texto={t("notFoundCharacter")}
-            clase="text-2xl text-center mt-8"
-          />
+          <div className="flex flex-col items-center">
+            <Titulo
+              texto={t("notFoundCharacter")}
+              clase="text-2xl text-center mt-8"
+            />
+            <div
+              style={{ backgroundImage: "url('/resultBusqueda.jpeg')" }}
+              className="mx-auto my-8 border p-4 rounded shadow flex flex-col items-center bg-cover bg-center transition-all duration-300 transform hover:scale-105 hover:border-2 hover:border-white hover:shadow-2xl w-[32rem] h-[32rem]"
+            >
+              
+            </div>
+          </div>
         )}
       </div>
     </div>
