@@ -31,12 +31,12 @@ export default function Home() {
   className="w-1/2 bg-cover bg-center relative flex justify-center transition-all duration-300 cursor-pointer hover:brightness-90"
   style={{
     backgroundImage: "url('/heroes.jpg')",
-    clipPath: 'polygon(0 0, 100% 0, 80% 100%, 0 100%)',
+    clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)',
     filter: hovered === 'villanos' ? 'blur(3px)' : 'none',
   }}
 >
-  <div className="absolute top-10 bg-red-700/80 px-5 py-3 rounded-lg shadow-lg">
-    <h2 className="text-white text-6xl font-bold text-center">
+<div className="absolute top right-0 bg-red-700/80 px-10 py-3 rounded-lg shadow-lg w-full">
+  <h2 className="text-white text-6xl text-center font-bold">
       {t("heroes")}
     </h2>
   </div>
@@ -49,15 +49,16 @@ export default function Home() {
   className="w-1/2 bg-cover bg-center relative flex justify-center transition-all duration-300 cursor-pointer hover:brightness-90"
   style={{
     backgroundImage: "url('/villanos.webp')",
-    clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0 100%)',
+    clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%)',
     filter: hovered === 'heroes' ? 'blur(3px)' : 'none',
   }}
 >
-  <div className="absolute top-10 bg-red-700/80 px-10 py-6 rounded-lg shadow-lg">
-  <h2 className="text-white text-6xl font-bold text-center">
-  {t("villains")}
-    </h2>
-  </div>
+<div className="absolute top right-0 bg-red-700/80 px-10 py-3 rounded-lg shadow-lg w-full ">
+  <h2 className="text-white text-6xl text-center font-bold">
+    {t("villains")}
+  </h2>
+</div>
+
 </div>
 
 
