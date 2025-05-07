@@ -38,6 +38,9 @@ const Personajes = () => {
   useEffect(() => {
     async function obtenerPersonajes() {
       try {
+        // Reiniciamos el estado para que no se muestren la busqueda anterior
+        setPersonajes([]);
+        setCargando(true);
         if (busqueda) {
           const personajeEncontrado = await getPersonajeNombre(busqueda);
           setPersonajes(personajeEncontrado ? [personajeEncontrado] : []);
