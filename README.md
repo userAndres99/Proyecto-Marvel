@@ -1,19 +1,19 @@
 # Guia de instalacion (tener Node.js y Git instalados)
 
-## Paso 1: Clonar el Repositorio
- abrir una terminal y ejecuta el comando:
+## Paso 1(Clonar el Repositorio):abrir una terminal y ejecuta el comando: 
+
  git clone https://github.com/userAndres99/Proyecto-Marvel.git
 
-## Paso 2:Ingresar al Directorio del Proyecto e Instalar Dependencias
- ingresa al directorio del proyecto desde la terminal y ejecuta el comando:
+## Paso 2(Instalar Dependencias):ingresa al directorio del proyecto desde la terminal y ejecuta el comando:
+ 
  npm install
 
-## Paso 3:Ejecutar la Aplicación en Modo Desarrollo
- desde el directorio del proyecto ejecuta:
+## Paso 3(Ejecutar la Aplicación):desde el directorio del proyecto ejecuta:
+ 
  npm run dev
 
-## Paso 4:Acceder a la Aplicación
- accede a un browser y por url coloca:
+## Paso 4(Acceder a la Aplicación):accede a un browser y por url coloca:
+ 
   http://localhost:5173/
 
 
