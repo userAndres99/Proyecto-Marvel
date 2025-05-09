@@ -1,6 +1,6 @@
 # Notas:
   1.en el celular da problemas si se usa chrome (no entiendo muy bien el porque).
-  
+
   2.StrictMode sigue estando (esta en el main.jsx) asi que puede que aparezcan dobles consultas en la consola por esto.
   
 # Guia de instalacion (tener Node.js y Git instalados)
@@ -11,7 +11,9 @@
 
 ## Paso 2(Instalar Dependencias):ingresa al directorio del proyecto desde la terminal y ejecuta el comando:
  
- npm install
+ 1.ingresa al directorio con: cd Proyecto-Marvel
+
+ 2.ejecuta: npm install
 
 ## Paso 3(Ejecutar la Aplicación):desde el directorio del proyecto ejecuta:
  
