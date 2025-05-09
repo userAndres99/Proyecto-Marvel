@@ -26,7 +26,7 @@ const Header = () => {
           <img
             src="/Marvel-Comics-Logo.png"
             alt="Marvel Logo"
-            className="h-12 sm:h-16 md:h-20 w-auto"
+            className="h-12 sm:h-16 md:h-20 w-auto object-contain max-w-[80px] sm:max-w-[120px] md:max-w-[150px]"
           />
         </Link>
         <Buscador onBuscar={handleBuscar} />

@@ -21,7 +21,7 @@
   }
 }
 
-/* Reset enlaces */
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -36,18 +36,11 @@ a:hover {
   }
 }
 
-/* Body sin Flex para acomodar el contenido*/
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: inherit; /* hereda del :root */
+  background-color: inherit; 
   overflow-x: hidden;
 }
-
-
-
-
-
-
-
