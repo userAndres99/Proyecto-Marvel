@@ -33,12 +33,12 @@ export function Buscador({ onBuscar }) {
         value={inputValue}
         onChange={handleChange}
         placeholder={t("searchPlaceholder")}
-        clase="w-full sm:w-80 px-4 py-2 border border-gray-400 rounded-lg bg-gray-200 focus:ring-2 focus:ring-blue-500"
+        clase="w-full sm:w-80 px-2 sm:px-4 py-1 sm:py-2 border border-gray-400 rounded-lg bg-gray-200 focus:ring-2 focus:ring-blue-500"
       />
       <Boton 
         text={t("search")} 
         type="submit" 
-        clase="w-full sm:w-auto bg-red-600 hover:bg-red-900 text-white px-4 py-2 rounded-md"
+        clase="w-full sm:w-auto bg-red-600 hover:bg-red-900 text-white px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-base rounded-md"
       />
     </form>
   );
