@@ -1,6 +1,6 @@
-# Nota: El proyecto [Actualmente/Por el momento] no es responsive. 
-  Se recomienda visualizarlo en una computadora para una experiencia óptima. La adaptación para dispositivos móviles como era opcional no se priorizo y se implementará en futuras actualizaciones.
-  (estaba adaptandolo en un repositorio aparte pero como cambiamos cosas no funciono como era esperado)
+# Notas:
+  1-en el celular da problemas si se usa chrome (no entiendo muy bien el porque)
+  2-StrictMode sigue estando (esta en el main.jsx) asi que puede que aparezcan dobles consultas en la consola por esto
   
 # Guia de instalacion (tener Node.js y Git instalados)
 
