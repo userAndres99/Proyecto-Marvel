@@ -52,7 +52,7 @@ export function DetallePersonaje() {
     <div className="relative min-h-screen">
       <Fondo />
       
-      <div className="relative z-10 p-4 mt-10">
+      <div className="relative z-10 p-4 md:p-8 mt-10 md:mt-20">
         <div className="flex justify-start w-full">
           <Boton 
             text={t("back")} 
@@ -63,7 +63,7 @@ export function DetallePersonaje() {
 
         <Titulo 
           texto={t("detailCharacter")} 
-          clase="text-2xl font-bold mb-4"
+          clase="text-2xl md:text-3xl font-bold mb-4"
         />
         <Detalle personaje={personaje} />
       </div>

@@ -23,7 +23,6 @@ const Personajes = () => {
   // Parmetro de búsqueda
   const busqueda = parametrosURL.get("busqueda");  
   
-
   // Selector para heroe o vilano
   const heroeParam = parametrosURL.get("heroe");  
   const esHeroe = heroeParam === "true";  // como el valor de heroe es un string, lo convertimos a booleano
@@ -73,15 +72,15 @@ const Personajes = () => {
     return (
       <div className="relative min-h-[calc(100vh-60px)] flex flex-col justify-center items-center">
         <Fondo />
-        <div className="relative z-10 container mx-auto p-8 flex flex-col items-center">
+        <div className="relative z-10 container mx-auto p-4 md:p-8 flex flex-col items-center">
           <Titulo 
             texto={t("loadingCharacters")} 
-            clase="text-center text-xl"
+            clase="text-center text-xl md:text-2xl"
           />
           <img 
             src="/marvelLoading.gif" 
             alt="Loading Marvel" 
-            className="mt-4 w-80" 
+            className="mt-4 w-64 md:w-80" 
           />
         </div>
       </div>
@@ -102,7 +101,7 @@ const Personajes = () => {
     <div className="relative min-h-[calc(100vh-60px)]">
       <Fondo />
 
-      <div className="relative z-10 container mx-auto p-8 mt-10">
+      <div className="relative z-10 container mx-auto p-4 md:p-8 mt-4 md:mt-10">
         <div className="flex justify-start w-full">
           <Boton 
             text={t("back")} 
@@ -113,12 +112,12 @@ const Personajes = () => {
         {busqueda ? (
           <Titulo
             texto={`${t("searchResult")} ${busqueda}`}
-            clase="text-4xl font-bold text-center mb-8"
+            clase="text-3xl md:text-4xl font-bold text-center mb-4 md:mb-8"
           />
         ) : (
           <Titulo
             texto={esHeroe ? t("heroes") : t("villains")}
-            clase="inline-block text-4xl font-bold px-2 py-1 rounded-md"
+            clase="inline-block text-3xl md:text-4xl font-bold px-2 py-1 rounded-md"
           />
         )}
         {personajes.length > 0 ? (
@@ -129,7 +128,7 @@ const Personajes = () => {
               <ListarPersonajes personajes={personajes} />
             )}
             {!busqueda && (
-              <div className="flex justify-center mt-8 space-x-4">
+              <div className="flex flex-col md:flex-row justify-center mt-4 md:mt-8 space-y-4 md:space-y-0 md:space-x-4">
                 <Boton 
                   text={t("previous")}
                   onClick={() => cambiarPagina(paginaActual - 1)}
@@ -149,13 +148,13 @@ const Personajes = () => {
           <div className="flex flex-col items-center">
             <Titulo
               texto={t("notFoundCharacter")}
-              clase="text-2xl text-center mt-8"
+              clase="text-2xl md:text-3xl text-center mt-4 md:mt-8"
             />
             <div
               style={{ backgroundImage: "url('/resultBusqueda.jpeg')" }}
-              className="mx-auto my-8 border p-4 rounded shadow flex flex-col items-center bg-cover bg-center transition-all duration-300 transform hover:scale-105 hover:border-2 hover:border-white hover:shadow-2xl w-[32rem] h-[32rem]"
+              className="mx-auto my-4 md:my-8 border p-4 rounded shadow flex flex-col items-center bg-cover bg-center transition-all duration-300 transform hover:scale-105 hover:border-2 hover:border-white hover:shadow-2xl w-full max-w-[32rem] h-auto md:h-[32rem]"
             >
-              
+              {/* Contenido adicional si es necesario */}
             </div>
           </div>
         )}

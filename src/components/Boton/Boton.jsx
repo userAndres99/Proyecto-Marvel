@@ -13,7 +13,7 @@ const Boton = ({ text, onClick, disabled, clase = "" }) => {
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`px-4 py-2 rounded-md shadow transition-all duration-200 ${clase}`}
+      className={`px-3 sm:px-4 py-1 sm:py-2 text-sm sm:text-base rounded-md shadow transition-all duration-200 ${clase}`}
     >
       {text}
     </button>

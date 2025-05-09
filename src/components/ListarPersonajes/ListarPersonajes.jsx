@@ -4,7 +4,6 @@ import Boton from "../Boton/Boton";
 import { ROUTES } from "../../const/routes";
 import { useTranslation } from "react-i18next";
 
-
 const ListarPersonajes = ({ personajes, centrado = false }) => {
 
   const { t } = useTranslation();
@@ -24,7 +23,7 @@ const ListarPersonajes = ({ personajes, centrado = false }) => {
                      transition-all duration-300 transform 
                      hover:scale-105 hover:border-2 hover:border-white hover:shadow-2xl"
         >
-          <div className="w-70 h-120 overflow-hidden mb-4">
+          <div className="w-64 sm:w-70 h-80 sm:h-120 overflow-hidden mb-4">
             <img
               src={personaje.urlImagen}
               alt={personaje.nombre}

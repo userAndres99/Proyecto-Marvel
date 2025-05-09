@@ -27,15 +27,19 @@ export function Buscador({ onBuscar }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center gap-4">
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4 w-full">
       <Input
         name="busqueda"
         value={inputValue}
         onChange={handleChange}
         placeholder={t("searchPlaceholder")}
-        clase="w-80 px-4 py-2 border border-gray-400 rounded-lg bg-gray-200 focus:ring-2 focus:ring-blue-500 "
+        clase="w-full sm:w-80 px-4 py-2 border border-gray-400 rounded-lg bg-gray-200 focus:ring-2 focus:ring-blue-500"
       />
-      <Boton text={t("search")} type="submit" clase="bg-red-600 hover:bg-red-900 text-white px-4 py-2 rounded-md" />
+      <Boton 
+        text={t("search")} 
+        type="submit" 
+        clase="w-full sm:w-auto bg-red-600 hover:bg-red-900 text-white px-4 py-2 rounded-md"
+      />
     </form>
   );
 }

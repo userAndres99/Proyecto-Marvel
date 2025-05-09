@@ -47,7 +47,7 @@ export default function Favoritos() {
     return (
       <div className="relative min-h-screen">
         <Fondo />
-        <div className="relative z-10 container mx-auto p-8 mt-10 flex flex-col items-center">
+        <div className="relative z-10 container mx-auto p-4 md:p-8 mt-4 md:mt-10 flex flex-col items-center">
           <div className="flex justify-start w-full">
             <Boton 
               text={t("back")} 
@@ -58,7 +58,7 @@ export default function Favoritos() {
           <Titulo texto={t("resultFavorites")} clase="text-xl text-center my-8" />
           <div
             style={{ backgroundImage: "url('/noFavoritos.jpeg')" }}
-            className="mx-auto my-8 border p-4 rounded shadow flex flex-col items-center bg-cover bg-center transition-all duration-300 transform hover:scale-105 hover:border-2 hover:border-white hover:shadow-2xl w-[32rem] h-[32rem]"
+            className="mx-auto my-8 border p-4 rounded shadow flex flex-col items-center bg-cover bg-center transition-all duration-300 transform hover:scale-105 hover:border-2 hover:border-white hover:shadow-2xl w-full max-w-[32rem] h-auto md:h-[32rem]"
           >
             
           </div>
@@ -70,7 +70,7 @@ export default function Favoritos() {
   return (
     <div className="relative min-h-screen">
       <Fondo />
-      <div className="relative z-10 container mx-auto p-8 mt-10">
+      <div className="relative z-10 container mx-auto p-4 md:p-8 mt-4 md:mt-10">
         <div className="flex justify-start w-full">
           <Boton 
             text={t("back")} 
