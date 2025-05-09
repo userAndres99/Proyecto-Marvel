@@ -1,3 +1,7 @@
+# Nota: El proyecto [Actualmente/Por el momento] no es responsive. 
+  Se recomienda visualizarlo en una computadora para una experiencia óptima. La adaptación para dispositivos móviles como era opcional no se priorizo y se implementará en futuras actualizaciones.
+  (estaba adaptandolo en un repositorio aparte pero como cambiamos cosas no funciono como era esperado)
+  
 # Guia de instalacion (tener Node.js y Git instalados)
 
 ## Paso 1(Clonar el Repositorio):abrir una terminal y ejecuta el comando: 
