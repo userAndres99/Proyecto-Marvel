@@ -1,6 +1,7 @@
 # Notas:
-  1-en el celular da problemas si se usa chrome (no entiendo muy bien el porque)
-  2-StrictMode sigue estando (esta en el main.jsx) asi que puede que aparezcan dobles consultas en la consola por esto
+  1.en el celular da problemas si se usa chrome (no entiendo muy bien el porque).
+  
+  2.StrictMode sigue estando (esta en el main.jsx) asi que puede que aparezcan dobles consultas en la consola por esto.
   
 # Guia de instalacion (tener Node.js y Git instalados)
 
