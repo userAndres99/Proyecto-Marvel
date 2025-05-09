@@ -7,7 +7,7 @@ import { ROUTES } from "../../const/routes";
 
 const Header = () => {
   const navigate = useNavigate();
-
+  
   const handleBuscar = (nombreBuscado) => {
     navigate(`${ROUTES.Personajes}?busqueda=${encodeURIComponent(nombreBuscado)}`);
   };
@@ -26,7 +26,7 @@ const Header = () => {
           <img
             src="/Marvel-Comics-Logo.png"
             alt="Marvel Logo"
-            className="h-12 sm:h-16 md:h-20 w-auto object-contain max-w-[80px] sm:max-w-[120px] md:max-w-[150px]"
+            className="h-16 sm:h-20 md:h-24 w-auto object-contain max-w-[100px] sm:max-w-[140px] md:max-w-[180px]"
           />
         </Link>
         <Buscador onBuscar={handleBuscar} />
@@ -37,19 +37,19 @@ const Header = () => {
           <label htmlFor="idioma-select" className="sr-only">Idioma</label>
           <select
             id="idioma-select"
-            className="bg-white text-gray-800 px-2 sm:px-3 py-1 rounded"
-            value={i18n.language}  // para mostrar el idioma actual
+            className="bg-white text-gray-800 px-3 py-2 rounded"
+            value={i18n.language}
             onChange={(e) => cambiarIdioma(e.target.value)}
           >
             <option value="es">Español</option>
-            <option value="en">Ingles</option>
+            <option value="en">Inglés</option>
           </select>
         </div>
         
         <Boton
           text={t("favorites")}
           onClick={() => navigate(ROUTES.Favoritos)}
-          clase="bg-red-600 hover:bg-red-900 text-white px-3 sm:px-4 py-1 rounded-md"
+          clase="bg-red-600 hover:bg-red-900 text-white px-4 py-2 rounded-md"
         />
       </div>
     </header>

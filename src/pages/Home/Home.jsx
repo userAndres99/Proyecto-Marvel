@@ -15,7 +15,7 @@ export default function Home() {
     i18n.changeLanguage(idiomaUsuario);
   }, [i18n]);
   
-  // Hook para detectar el tamaño de la ventana y ajustar estilos en mobile
+  // Hook para detectar el tamaño de pantalla
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);

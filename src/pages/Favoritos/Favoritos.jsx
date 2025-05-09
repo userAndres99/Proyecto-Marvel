@@ -40,8 +40,23 @@ export default function Favoritos() {
   }, []);
 
   if (loading) {
-    return <div>{t("loadingCharacters")}</div>;
-  }
+  return (
+    <div className="relative min-h-[calc(100vh-60px)] flex flex-col justify-center items-center">
+      <Fondo />
+      <div className="relative z-10 container mx-auto p-4 md:p-8 flex flex-col items-center">
+        <Titulo 
+          texto={t("loadingCharacters")} 
+          clase="text-center text-xl md:text-2xl"
+        />
+        <img 
+          src="/marvelLoading.gif" 
+          alt="Loading Marvel" 
+          className="mt-4 w-64 md:w-80" 
+        />
+      </div>
+    </div>
+  );
+}
 
   if (favoritos.length === 0) {
     return (
